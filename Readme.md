@@ -1,7 +1,7 @@
 
 # Express Cachebuster
 
-`express-cachebuster` provides cross-browser version-control/cache-busting as a dynamic helper to your views.
+`express-cachebuster` provides cross-browser version-control/cache-busting as a dynamic view helper in `express`.
 
       app.dynamicHelpers({ cacheBuster: require('express-cachebuster') });
 
