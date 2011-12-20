@@ -20,12 +20,12 @@ function getFile(asset, publicDir) {
 }
 
 function renderTag(stats, env) {
-  var v = 1
+  var v
     , t = mime.lookup(stats[1]);
   if(env === 'development') {
     v = new Date().getTime();
   } else {
-    v = new Date().parse(stats[0].mtime);
+    v = Date.parse(stats[0].mtime);
   }
   switch(t) {
     case 'text/javascript':
@@ -48,6 +48,7 @@ module.exports = function(req, res) {
       for(var i=0; i<asset.length; i++) {
         if(typeof asset[i] === 'string') {
           stats = getFile(asset[i], publicDir);
+          console.log(stats);
           buf.push(renderTag(stats, env));
         } else {
           console.log('\n  express-cachebuster asset undefined in array');
@@ -55,7 +56,6 @@ module.exports = function(req, res) {
       }
     } else if (asset && typeof asset === 'string') {
       stats = getFile(asset, publicDir);
-      console.log(stats);
       buf.push(renderTag(stats, env));
     } else {
       console.log('\n  express-cachebuster asset is undefined');
