@@ -48,7 +48,6 @@ module.exports = function(req, res) {
       for(var i=0; i<asset.length; i++) {
         if(typeof asset[i] === 'string') {
           stats = getFile(asset[i], publicDir);
-          console.log(stats);
           buf.push(renderTag(stats, env));
         } else {
           console.log('\n  express-cachebuster asset undefined in array');
