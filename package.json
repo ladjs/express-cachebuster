@@ -1,7 +1,7 @@
 {
     "name": "express-cachebuster"
   , "description": "Express asset rendering with version-control/cache-busting."
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "author": "Nick Baugh <niftylettuce@gmail.com>"
   , "keywords": [
         "cache"
