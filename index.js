@@ -10,10 +10,7 @@ var fs = require('fs')
   , mime = require('mime');
 
 function getFile(asset, publicDir) {
-  if(typeof publicDir === 'undefined' || typeof publicDir !== 'string') {
-    publicDir = 'public';
-  }
-  var file = path.join(__dirname, publicDir, asset);
+  var file = path.join(publicDir, asset);
   return [fs.statSync(file, function(err, stats) {
     if(err || !stats.isFile()) {
       console.log('\n  express-cachebuster asset not found (is path correct?)');
@@ -22,10 +19,10 @@ function getFile(asset, publicDir) {
   }), file, asset];
 }
 
-function renderTag(stats) {
+function renderTag(stats, env) {
   var v = 1
     , t = mime.lookup(stats[1]);
-  if(app.settings.env === 'development') {
+  if(env === 'development') {
     v = new Date().getTime();
   } else {
     v = new Date().parse(stats[0].mtime);
@@ -42,21 +39,24 @@ function renderTag(stats) {
 }
 
 module.exports = function(req, res) {
-  return function(asset, publicDir) {
+  return function(asset) {
     var buf = []
-      , stats;
+      , stats
+      , publicDir = req.app.settings['public']
+      , env = req.app.settings.env;
     if(asset instanceof Array && asset.length > 0) {
       for(var i=0; i<asset.length; i++) {
         if(typeof asset[i] === 'string') {
-          stats = getFile(asset, publicDir);
-          buf.push(renderTag(stats));
+          stats = getFile(asset[i], publicDir);
+          buf.push(renderTag(stats, env));
         } else {
           console.log('\n  express-cachebuster asset undefined in array');
         }
       }
     } else if (asset && typeof asset === 'string') {
       stats = getFile(asset, publicDir);
-      buf.push(renderTag(stats));
+      console.log(stats);
+      buf.push(renderTag(stats, env));
     } else {
       console.log('\n  express-cachebuster asset is undefined');
       process.exit(0);

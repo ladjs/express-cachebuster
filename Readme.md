@@ -3,8 +3,6 @@
 
 `express-cachebuster` provides cross-browser version-control/cache-busting as a dynamic view helper in `express`.
 
-      app.dynamicHelpers({ cacheBuster: require('express-cachebuster') });
-
 This was made as an integrated feature of [Expressling][1].
 [1]: http://expressling.com
 
@@ -14,7 +12,18 @@ This was made as an integrated feature of [Expressling][1].
 
 # Usage
 
-In your views simply include the dynamic helper and pass your asset's path.
+Add the following to your `express` app (e.g. `server.js`):
+
+      app.configure(function() {
+        app.set('public', __dirname + '/public');
+      });
+
+      app.dynamicHelpers({
+        cacheBuster: require('express-cachebuster');
+      });
+
+
+In your views execute the `cacheBuster` function and pass your asset's path.
 
 For more options see <a href="#goodies">Goodies</a>.
 
@@ -61,15 +70,6 @@ Outputs HTML as shown below for development environment:
 
       <link rel='stylesheet' href='/public/css/style.css?v=$lastModifiedTimestamp'>
       <link rel='stylesheet' href='/public/css/ie.css?v=$lastModifiedTimestamp'>
-
-
-### You can override the default "public" folder:
-
-**EJS:** `<%- cacheBuster('/stylesheets/style.css', 'www') %>`
-
-**Jade:** `!= cacheBuster('/stylesheets/style.css', 'www')`
-
-... which looks inside `/home/username/project/www` for `/stylesheets/style.css`.
 
 # License
 
