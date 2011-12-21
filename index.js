@@ -12,16 +12,17 @@ var fs = require('fs')
 // Render Tag
 function renderTag(asset, env, stats) {
   var mimeType = mime.lookup(asset)
-  , timestamp = new Date().getTime();
+  , timestamp = '?v=' + new Date().getTime();
   if(env === 'production' && typeof stats !== 'undefined') {
-    timestamp = Date.parse(stats.mtime);
+    //timestamp = Date.parse(stats.mtime);
+    timestamp = '';
   }
   switch(mimeType) {
     case 'application/javascript':
     case 'text/javascript':
-      return '<script type="text/javascript" src="' + asset + '?v=' + timestamp + '"></script>';
+      return '<script type="text/javascript" src="' + asset + timestamp + '"></script>';
     case 'text/css':
-      return '<link rel="stylesheet" href="' + asset + '?v=' + timestamp + '">';
+      return '<link rel="stylesheet" href="' + asset + timestamp + '">';
     default:
       console.log("Unknown asset type of " + mimeType);
       process.exit(0);
