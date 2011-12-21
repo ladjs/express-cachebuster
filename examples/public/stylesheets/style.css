@@ -1,3 +1,6 @@
-p{
-  color: red;
+
+/* line 1 : /home/atlantis/Public/express-cachebuster/examples/stylesheets/style.styl */
+p {
+  color: #f00;
+  font-size: 24px;
 }

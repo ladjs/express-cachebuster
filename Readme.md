@@ -6,6 +6,7 @@
 This was made as an integrated feature of [Expressling][1].
 [1]: http://expressling.com
 
+
 # Quick install
 
       $ npm install express-cachebuster
@@ -70,6 +71,10 @@ Outputs HTML as shown below for development environment:
 
       <link rel='stylesheet' href='/public/css/style.css?v=$lastModifiedTimestamp'>
       <link rel='stylesheet' href='/public/css/ie.css?v=$lastModifiedTimestamp'>
+
+# Contributors
+
+@butu25
 
 # License
 
