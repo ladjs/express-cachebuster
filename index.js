@@ -17,6 +17,7 @@ function renderTag(asset, env, stats) {
     timestamp = Date.parse(stats.mtime);
   }
   switch(mimeType) {
+    case 'application/javascript':
     case 'text/javascript':
       return '<script type="text/javascript" src="' + asset + '?v=' + timestamp + '"></script>';
     case 'text/css':
