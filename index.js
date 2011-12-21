@@ -13,8 +13,9 @@ function getFile(asset, publicDir) {
   var file = path.join(publicDir, asset);
   return [fs.statSync(file, function(err, stats) {
     if(err || !stats.isFile()) {
-      console.log('\n  express-cachebuster asset not found (is path correct?)');
-      process.exit(0);
+      console.log(''
+        + '\n  Asset not found, is the file\'s path correct?'
+        + '\n  ...ignore this if using Stylus middleware.');
     }
   }), file, asset];
 }
