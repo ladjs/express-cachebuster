@@ -40,7 +40,7 @@ Outputs HTML as shown below for development environment:
 
 ...and for production environment:
 
-      <script type='text/javascript' src='/js/mylibs/script.js?v=$lastModifiedTimestamp'></script>
+      <script type='text/javascript' src='/js/mylibs/script.js'></script>
 
 ## Jade
 
@@ -52,7 +52,7 @@ Outputs HTML as shown below for development environment:
 
 ...and for production environment:
 
-      <link rel='stylesheet' href='/stylesheets/style.css?v=$lastModifiedTimestamp'>
+      <link rel='stylesheet' href='/stylesheets/style.css'>
 
 # <a href="#goodies" name="goodies">Goodies</a>
 
@@ -69,8 +69,8 @@ Outputs HTML as shown below for development environment:
 
 .. and for production environment:
 
-      <link rel='stylesheet' href='/public/css/style.css?v=$lastModifiedTimestamp'>
-      <link rel='stylesheet' href='/public/css/ie.css?v=$lastModifiedTimestamp'>
+      <link rel='stylesheet' href='/public/css/style.css'>
+      <link rel='stylesheet' href='/public/css/ie.css'>
 
 # Contributors
 
