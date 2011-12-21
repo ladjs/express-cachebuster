@@ -74,7 +74,7 @@ Outputs HTML as shown below for development environment:
 
 # Contributors
 
-@butu25
+[Butu](https://github.com/butu25) <butu25@gmail.com>
 
 # License
 
