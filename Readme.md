@@ -3,7 +3,7 @@
 
 `express-cachebuster` provides cross-browser version-control/cache-busting as a dynamic view helper in `express`.
 
-This was made as an integrated feature of [Expressling][1] (not currently working though).
+This was made as an integrated feature of [Expressling][1].
 [1]: http://expressling.com
 
 # Quick install
