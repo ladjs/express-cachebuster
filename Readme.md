@@ -13,7 +13,7 @@ This was made as an integrated feature of [Expressling][1].
 
 # Usage
 
-Add the following to your `express` app (e.g. `server.js`):
+Add the following to your `express` app, e.g., `server.js`:
 
       app.configure(function() {
         app.set('public', __dirname + '/public');
@@ -36,11 +36,11 @@ For more options see <a href="#goodies">Goodies</a>.
 
 Outputs HTML as shown below for development environment:
 
-      <script type='text/javascript' src='/js/mylibs/script.js?v=$currentTimestamp'></script>
+      <script src='/js/mylibs/script.js?v=$currentTimestamp' type='text/javascript'></script>
 
-...and for production environment:
+&hellip; and for production environment:
 
-      <script type='text/javascript' src='/js/mylibs/script.js'></script>
+      <script src='/js/mylibs/script.js' type='text/javascript'></script>
 
 ## Jade
 
@@ -48,11 +48,11 @@ Outputs HTML as shown below for development environment:
 
 Outputs HTML as shown below for development environment:
 
-      <link rel='stylesheet' href='/stylesheets/style.css?v=$currentTimestamp'>
+      <link href='/stylesheets/style.css?v=$currentTimestamp' rel='stylesheet'>
 
-...and for production environment:
+&hellip; and for production environment:
 
-      <link rel='stylesheet' href='/stylesheets/style.css'>
+      <link href='/stylesheets/style.css' rel='stylesheet'>
 
 # <a href="#goodies" name="goodies">Goodies</a>
 
@@ -64,13 +64,21 @@ Outputs HTML as shown below for development environment:
 
 Outputs HTML as shown below for development environment:
 
-      <link rel='stylesheet' href='/public/css/style.css?v=$currentTimestamp'>
-      <link rel='stylesheet' href='/public/css/ie.css?v=$currentTimestamp'>
+      <link href='/stylesheets/style.css?v=$currentTimestamp' rel='stylesheet'>
+      <link href='/stylesheets/ie.css?v=$currentTimestamp' rel='stylesheet'>
 
-.. and for production environment:
+&hellip; and for production environment:
 
-      <link rel='stylesheet' href='/public/css/style.css'>
-      <link rel='stylesheet' href='/public/css/ie.css'>
+      <link href='/stylesheets/style.css' rel='stylesheet'>
+      <link href='/stylesheets/ie.css' rel='stylesheet'>
+
+### You can pass an object as the second parameter representing attributes and their values to add to the generated tag:
+
+      cacheBuster('/scripts/require.js', {'data-message': 'Hello world', 'data-main': '/app/main.js'})
+
+which outputs the following HTML:
+
+      <script data-main='/app/main.js' data-message='Hello world' src='/scripts/require.js' type='text/javascript'></script>
 
 # Contributors
 
