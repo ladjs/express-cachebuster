@@ -1,10 +1,11 @@
 {
     "name": "express-cachebuster"
   , "description": "Express asset rendering with version-control/cache-busting."
-  , "version": "0.0.6"
+  , "version": "0.0.7"
   , "author": "Nick Baugh <niftylettuce@gmail.com>"
   , "contributors": [
-      { "name": "Butu", "email": "butu25@gmail.com" }
+      { "name": "Butu", "email": "butu25@gmail.com" },
+      { "name": "David Murdoch", "email": "hello@vervestudios.co" }
     ]
   , "keywords": [
         "cache"

@@ -82,6 +82,7 @@ which outputs the following HTML:
 
 # Contributors
 
+David Murdoch - <hello@vervestudios.co> - [@davidmurdoch](https://github.com/davidmurdoch)
 Butu - <butu25@gmail.com> - [@butu5](https://github.com/butu5)
 
 # License
