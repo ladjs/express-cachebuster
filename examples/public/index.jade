@@ -4,3 +4,4 @@ html
     != cacheBuster('/stylesheets/style.css')
   body
     p Hello world from jade
+    != cacheBuster('/scripts/script.js', {'data-message': 'Hello world from cacheBuster data attribute'})
