@@ -61,7 +61,7 @@ function renderTag(asset, env, stats, attributes) {
 // Check Asset
 function checkAsset(asset, publicDir, env, buf, attributes) {
   var file = path.join(publicDir, asset);
-  if(path.existsSync(file)) {
+  if(fs.existsSync(file)) {
     var tag = renderTag(asset, env, fs.statSync(file), attributes);
     buf.push(tag);
   } else {
