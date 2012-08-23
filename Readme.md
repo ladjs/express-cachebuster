@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/niftylettuce/express-cachebuster.png)](http://travis-ci.org/niftylettuce/express-cachebuster)
 
 # Express Cachebuster
 
