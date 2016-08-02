@@ -16,11 +16,11 @@ This was made as an integrated feature of [Expressling][1].
 Add the following to your `express` app, e.g., `server.js`:
 
       app.configure(function() {
-        app.set('public', __dirname + '/public');
+        app.set('public', __dirname + '/public')
       });
 
       app.dynamicHelpers({
-        cacheBuster: require('express-cachebuster');
+        cacheBuster: require('express-cachebuster')
       });
 
 
